@@ -1,6 +1,16 @@
-import { Card, CardContent, Grid, Typography } from '@material-ui/core';
+import { Button, Card, CardContent, Grid, Typography } from '@material-ui/core';
 import React, { useState } from 'react';
 import FormInput from './FormInput';
+
+const styles = {
+	Title: {
+		padding: 40,
+	},
+
+	Button: {
+		margin: 20,
+	},
+};
 
 const Form = () => {
 	const [fields, setFields] = useState({});
@@ -14,9 +24,12 @@ const Form = () => {
 		<Grid item xs={12} sm={8} md={6}>
 			<Card elevation={3}>
 				<CardContent>
-					<Typography variant='h6'> Pague agora</Typography>
-					<Grid container justify='center' spacing={1}>
-						<Grid item sm={10}>
+					<Typography variant='h6' style={styles.Title}>
+						{' '}
+						Pague agora
+					</Typography>
+					<Grid container justify='center' spacing={2}>
+						<Grid item xs={10}>
 							<FormInput
 								value={fields.cardNumber}
 								field='cardNumber'
@@ -24,7 +37,7 @@ const Form = () => {
 								Número do cartão
 							</FormInput>
 						</Grid>
-						<Grid item sm={10}>
+						<Grid item xs={10}>
 							<FormInput
 								value={fields.cardName}
 								field='cardName'
@@ -32,7 +45,15 @@ const Form = () => {
 								Nome impresso no cartão
 							</FormInput>
 						</Grid>
-						<Grid item sm={5}>
+						<Grid item xs={10}>
+							<FormInput
+								value={fields.cpf}
+								field='cpf'
+								handleChange={handleChange}>
+								CPF do Titular
+							</FormInput>
+						</Grid>
+						<Grid item xs={5}>
 							<FormInput
 								value={fields.cvv}
 								field='cvv'
@@ -40,7 +61,7 @@ const Form = () => {
 								CVV
 							</FormInput>
 						</Grid>
-						<Grid item sm={5}>
+						<Grid item xs={5}>
 							<FormInput
 								value={fields.dueDate}
 								field='dueDate'
@@ -48,8 +69,14 @@ const Form = () => {
 								Validade do Cartão
 							</FormInput>
 						</Grid>
+						<Grid item xs={8} />
+						<Grid item>
+							<Button variant='contained' color='primary' style={styles.Button}>
+								{' '}
+								Pagar{' '}
+							</Button>
+						</Grid>
 					</Grid>
-					<p> {JSON.stringify(fields, null, 2)}</p>
 				</CardContent>
 			</Card>
 		</Grid>
