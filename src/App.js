@@ -9,14 +9,17 @@ function App() {
 				<Grid item>
 					<AppBar>
 						<Toolbar>
-							<Typography variant='h5'> My payment form </Typography>
+							<Typography variant='h5'>
+								{' '}
+								Formulário de Pagamento Fácil{' '}
+							</Typography>
 						</Toolbar>
 					</AppBar>
 				</Grid>
 				<Grid item container>
-					<Grid item xs={0} sm={2} md={3} />
+					<Grid item xs={false} sm={2} md={3} />
 					<Form />
-					<Grid item xs={0} sm={2} md={3} />
+					<Grid item xs={false} sm={2} md={3} />
 				</Grid>
 			</Grid>
 		</div>
